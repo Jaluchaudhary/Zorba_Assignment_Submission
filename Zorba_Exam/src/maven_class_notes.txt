@@ -1,0 +1,109 @@
+
+Build Process
+
+1. File should be in .class file
+2. Zipping all .class file s to JAR/WAR/EAR
+
+JAR -> Java Archive -> in this format only java file (.class) + xml(Extensible markup language) file can be combined. -> Reusable file
+
+WAR -> Web Archive -> java + HTML + JS + CSS + XML + .sql -> Needs to deploy to tomcat/jetty (Web server)
+
+EAR -> Enterprise Archive -> combination of JAR + WAR files -> deployed to application server (web logic/jboss)
+
+
+We have 3 build tool available
+
+1. Ant
+2. Maven
+3. Gradle
+
+——————————————————————
+
+We need to create maven/gradle project —> Git hub / Git Lab/ Bitbucket —> Jenkins (CI/CD) -> Build and deploy to specific server (App Server / Web Server) (AWS/Azure/Docker)
+——————————————————————
+
+Maven
+————
+
+Build tool which helps to build java project
+
+Feature of Maven:
+—————————--------
+    1. Deployment Management
+    2. Build Lifecycle
+    3. Plugins
+    4. pom.xml (project Object Model) - main configuration file that we provide to a project,
+        where we mention about the project configuration along with all the required
+        dependencies.
+        4.1. groupId - provide domain name of the organization for which we are creating
+                the project. We need to make it unique.
+        4.2. ArtifactId - will be same as project name. Under the same group we can have multiple
+                artifact ids. But under same group we can't have duplicate artifact id.
+        ** GroupId, artifact id combination have to be unique.
+        4.3. version -
+        1.0
+        1.1
+        1.2
+        1.3
+        1.3-SNAPSHOT
+
+            4.3.1 Snapshot version - We don't need to change the version frequently. we can perform
+                    multiple build with this. For Development / Testing we use SNAPSHOT
+            4.3.2 Release version - We have to provide unique value before each build. When we are ready
+                    for production deployment.
+
+------------------------------------------------------------------------
+Maven Build Lifecycle:
+----------------------
+1. Clean - Standards lifecycle, where we are cleaning the previous build.
+2. validate - Scan the entire project and validate the project information
+        is accurate or not.
+3. compile - In this step, .java file get compiled and converted to .class file.
+4. test - helps to run the unit test cases.
+5. package - help to package it in jar/war/ear format.
+6. verify - all the maven criteria has been met to build the jar/war/ear file.
+7. Install - execute all the above stage
+        (validate + compile + test + package + verify).
+8. site - helps to gather project documentation, metrics, and report.
+        We use here code coverage(sonaqube, jcoco) with respect to the unit test cases and the actual logic that we have developed.
+9. deploy - copy the final jar/war/ear file to the remote location and deploy to the server.
+
+----------------------------
+Maven Repositories
+------------------
+1. Central : https://mvnrepository.com, available all the open jar over internet.
+2. Local : .m2 folder will be consider as the local repo.
+3. Remote : Which maintain by / for the organization.
+
+Local(.m2) --> Central --> Remote. this is the way of searching dependency inside the repository.
+
+When a new dependency added to the project then below process will be followed
+1. first it will try to search from local repo (.m2 folder)
+2. if not found in local then it goes to central repo
+3. if not found in central then go to Remote repo.
+
+** .m2 folder (local repo) where the jar/library will be store for life time.
+unless we remove manually
+
+--------------------------------
+1. How to define remote inside pom.xml
+    a. Configuring the remote url inside the pom.xml using <repositories>
+        - always helps to fetch the artifactory / jar / dependency from the remote repo
+    b. Create setting.xml file and keep it in the same .m2 folder -> .m2/setting.xml
+        <servers>
+            <server>
+                <id>Test-remote-url</id>
+                <username>test_110</username>
+                <password>@Test110</password>
+            </server>
+            <server>
+                <id>Test-remote-url_1</id>
+                <username>test_111</username>
+                <password>@Test111</password>
+            </server>
+        </servers>
+    c. <distributeManagement> in pom.xml always use to publish the
+        artifactory to a specific remote location.
+
+------------------------------------------------
+Plugin :
