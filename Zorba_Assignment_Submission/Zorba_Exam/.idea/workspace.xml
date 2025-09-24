@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c9b6455-4737-41e1-8d3e-40f4bd2c53b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../.idea/Zorba_Assignment_Submission.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Zorba_Exam/src/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Zorba_Exam/src/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Zorba_Exam/src/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Zorba_Exam/src/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Zorba_Exam/src/main/java/ReadFromExcelFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Zorba_Exam/src/main/java/WriteToExcelFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
